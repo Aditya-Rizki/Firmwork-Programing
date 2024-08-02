@@ -1,0 +1,20 @@
+<selection id="form">
+    <div class="container">
+        <div class="'row">
+            <div class="col-md-2">
+                {% for massage in massage %}
+                    {% if massage %}
+                    <div class="alert alert-success">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+                <h3> ubah : {{ barangs.kodebrg }}</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                <a href="/VBrg" class="btn btn-danger">Kembali</a>
+            </form>
+            </div>
+        </div>
+    </div>
+</selection>

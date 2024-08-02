@@ -1,0 +1,53 @@
+<div class="container">
+<h2 class="text-center">Daftar Barang</h2>
+<p><a herf="/Add" class="btn-primary">Tambah Data</a></p>
+{% for message in massage %}
+    {% if massage %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endif %}
+{% endfor %}
+<table border="1" class="table table-success table-striped">
+    <tr>
+        <th>Kode Barang</th>
+        <th>Nama</th>
+        <th>Stok</th>
+        <th>Harga</th>
+        <th>Link Gambar</th>
+        <th>Jenis</th>
+        <th>Aksi</th>
+    </tr>
+
+{% for Barang in barang %}
+    <tr>
+        <td><a href="{% url 'ubah_brg' Barang.id %}">{{ Barang.kodebrg }}</a></th>
+        <td>{{ Barang.kodebrg }}</td>
+        <td>{{ Barang.Nama }}</td>
+        <td>{{ Barang.Stok }}</td>
+        <td>{{ Barang.Harga }}</td>
+        <td>{{ Barang.Link_gbr }}</td>
+        <td>{{ Barang.Jenis_id.nama }}</td>
+        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+            data-bs-target="#hapus-{{ Barang.id }}">Hapus</button></td>
+            <!-- Modal -->
+             <div class="modal fade" id="hapus-{{ Barang.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hiden="true"
+                <div class="Modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Bener dihapus nih?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"</button>
+                </div>
+                <div class="modal-body">
+                    Nama barang : {{ Barang.nama }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <a href="{% url 'hapus_brg' Barang.id %}" class="btn btn-danger">Yakin</a>
+                </div>
+                </div>
+                </div>
+                </div>
+    </tr>   
+{% endfor %}
+</table>
+</div>
+{% endblock %}        
